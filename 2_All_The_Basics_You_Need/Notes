@@ -27,3 +27,37 @@ but we'll go into more detail later.
 
 FetchRequest - our query to the ManagedObjectContext. Includes: Entity (table), Predicate (optional), Sort descriptor (optional)
 
+2.5 FIRST DATA MODEL IN XCODE
+
+Create new project and select Use CoreData when you name your project. What does this do?
+This creates a xcdatamodel file which you can make your entities in.
+In the AppDelegate: A default CoreData stack is created for you. We will make our own later.
+
+To create CoreData from scratch:
+Create a project without selecting Use CoreData.
+Create a new file and select Data Model (double check that you are adding the data model to the target)
+
+2.6 ENTITIES AND ATTRIBUTES
+
+Click on the Data Model file.
+There is an 'add entity' button at the bottom of the window.
+Name the entity with a capital letter as it will be mapped to a class.
+
+You can toggle between the table and model views by pressing the buttons at the bottom right of the window.
+
+2.7 RELATIONSHIPS
+
+ONE-TO-ONE - example: One person owns one book. The book, in turn has one owner.
+
+ONE-TO-MANY - example: One person owns many books. Each book has only one owner.
+
+MANY-TO-MANY - example: three orders are made to an online book store. Each order can contain many books, but each title can also belong to more than one order. Note that this means there is more than one instance of the book. (see 2.7.1)
+
+2.8 ADDING RELATIONSHIPS TO ENTITIES
+
+In the table editor you can add a relationship.
+
+
+
+
+
