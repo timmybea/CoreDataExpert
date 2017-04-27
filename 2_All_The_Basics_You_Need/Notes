@@ -1,0 +1,29 @@
+SECTION 2: ALL THE BASICS YOU NEED
+
+2.4 WHAT IS CORE DATA?
+
+CoreData is a data persistence framework for our device or the cloud
+It is NOT a real database; it is an OBJECT RELATIONAL MAPPER
+It has a database at its lowest level, but it is a framework that allows you to access the data in an easy way.
+It arranges our tables into CLASSES and OBJECTS. Instead of querying a column of a table, we treat it as a property of an object using typical swift dot syntax. (see 2.4.1)
+
+THE CORE DATA STACK (see 2.4.2) From bottom to top:
+1. There are five different storage types
+2. NSPersistentStore - deals directly with the storage types
+3. NSPersistentStoreCoordinator & NSManagedObjectModel - We come into contact with this more than the NSPersistentStore. It associates the PersistentStore with the NSManagedObjectModel. Serves as the mediator between the persistentStore and the NSManagedObjectContext.
+4. NSManagedObjectContext - THE MOST IMPORTANT PIECE! WE WORK WITH THIS MOST FREQUENTLY! We use this for saving and sending queries etc. Everything below the NSManagedObjectContext is 'nice to know' but we don't really work with it directly so much.
+
+To see how these objects communicate for a query and response (see 2.4.3)
+
+What is the ManagedObjectModel? see
+When we build ManagedObjectModels they look like objects with properties:
+Entities (look like objects) - The tables of our database
+Attributes (look like properties) - The columns of the tables in our database
+There are also:
+Relationships
+Fetched Properties
+
+but we'll go into more detail later.
+
+FetchRequest - our query to the ManagedObjectContext. Includes: Entity (table), Predicate (optional), Sort descriptor (optional)
+
