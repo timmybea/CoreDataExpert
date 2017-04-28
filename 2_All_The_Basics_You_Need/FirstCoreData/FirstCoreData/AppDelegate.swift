@@ -17,7 +17,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        let notebookObject = Notebook(context: persistentContainer.viewContext)
+        
+        
+        //A basic fetchrequest for all persisted notebook instances
+        let moc = persistentContainer.viewContext
+        
+        let notebookRequest: NSFetchRequest<Notebook> = Notebook.fetchRequest()
+        notebookRequest.returnsObjectsAsFaults = false
+        
+        var notebookArray = [Notebook]()
+        
+        do {
+            notebookArray = try moc.fetch(notebookRequest)
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        print(notebookArray)
+        
+        
+        //Create and save a managed object
+        /*let notebookObject = Notebook(context: persistentContainer.viewContext)
         notebookObject.title = "My Evil Deeds"
         notebookObject.createdAt = Date() as NSDate
         
@@ -25,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             try persistentContainer.viewContext.save()
         } catch {
             print(error.localizedDescription)
-        }
+        }*/
         
         return true
     }
