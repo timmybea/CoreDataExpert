@@ -16,14 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
-        
         
         //A basic fetchrequest for all persisted notebook instances
-        let moc = persistentContainer.viewContext
+        let moc = persistentContainer.viewContext //moc = managed object context
         
         let notebookRequest: NSFetchRequest<Notebook> = Notebook.fetchRequest()
         notebookRequest.returnsObjectsAsFaults = false
+        
+        let sortDescriptor = NSSortDescriptor(key: "title", ascending: false)
+        notebookRequest.sortDescriptors = [sortDescriptor]
         
         var notebookArray = [Notebook]()
         
@@ -33,19 +34,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print(error.localizedDescription)
         }
         
-        print(notebookArray)
+        for notebook in notebookArray {
+            print("This notebook is called \(notebook.title!) and was created at \(notebook.createdAt!)")
+        }
         
         
         //Create and save a managed object
-        /*let notebookObject = Notebook(context: persistentContainer.viewContext)
-        notebookObject.title = "My Evil Deeds"
-        notebookObject.createdAt = Date() as NSDate
-        
-        do {
-            try persistentContainer.viewContext.save()
-        } catch {
-            print(error.localizedDescription)
-        }*/
+//        let notebookObject = Notebook(context: persistentContainer.viewContext)
+//        notebookObject.title = "Better Living"
+//        notebookObject.createdAt = Date() as NSDate
+//        
+//        do {
+//            try persistentContainer.viewContext.save()
+//        } catch {
+//            print(error.localizedDescription)
+//        }
         
         return true
     }

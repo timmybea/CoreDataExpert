@@ -1,1 +1,35 @@
-Notes.txt
+SECTION 3: SAVING, SEARCHING AND FILTERING
+
+3.11 THE NSMANAGEDOBJECT
+Managed Objects are a great way to interact with your data model.
+Managed Objects are the object version of your data model.
+A managed object has the attributes of the datamodel as properties, and the relationships accessible by a function.
+The Managed Object is created as soon as you make your data model (this didn't use to be the case). If you want to give your class some custom behavior you can look at 'Codegen' under utilities inspector and change it to Manual/None. The default is 'Class Definition'.
+You can see that the class is created automatically, because the XCode will autocomplete when you instantiate it with the Entity name:
+
+
+3.12 CREATING AND SAVING MANGED OBJECTS
+
+let notebookObject = Notebook(context: persistentContainer.viewContext)
+
+...and then you can easily access the attributes etc using dot syntax
+notebookObject.title = "My Evil Deeds"
+
+
+3.13 FETCHING DATA
+
+returnObjectsAsFaults - if 'true' this will increase the speed of your fetch request, but the trade off is that you cannot access all of the objects properties.
+
+3.14 SORTING OBJECTS WITH NSSORTDESCRIPTOR
+This provides ordering of your fetch results. For example, maybe you want your results in alphabetical order of title.
+
+
+
+
+
+
+
+
+
+
+
