@@ -26,6 +26,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let sortDescriptor = NSSortDescriptor(key: "title", ascending: false)
         notebookRequest.sortDescriptors = [sortDescriptor]
         
+        
+        let notebookPredicate = NSPredicate(format: "title CONTAINS 'Evil'")
+        notebookRequest.predicate = notebookPredicate
+        
         var notebookArray = [Notebook]()
         
         do {
