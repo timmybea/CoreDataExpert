@@ -55,7 +55,19 @@ MANY-TO-MANY - example: three orders are made to an online book store. Each orde
 
 2.8 ADDING RELATIONSHIPS TO ENTITIES
 
-In the table editor you can add a relationship.
+In the table editor you can add a relationship. The utilities panel allows you to specify what kind of entity it is (one-to-many etc.)
+
+also in the utilities panel is the 'deletion rule'. We select 'nullify' for the note. This is because when we delete the notebook, all of its notes need to be nullified.
+
+2.9 CREATE THE DATASTACK
+
+IN THE APP DELEGATE
+import CoreDate
+
+Persistent Container - a computed property. The container is responsible for loading the persistent stores and encapsulates the CoreData stack in your application (wrapper).
+
+You then need to create a function that saves the changes to the managed object context when the application is closed.
+
 
 
 

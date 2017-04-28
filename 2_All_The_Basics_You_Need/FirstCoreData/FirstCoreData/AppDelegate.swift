@@ -16,7 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        let notebookObject = Notebook(context: persistentContainer.viewContext)
+        notebookObject.title = "My Evil Deeds"
+        notebookObject.createdAt = Date() as NSDate
+        
+        do {
+            try persistentContainer.viewContext.save()
+        } catch {
+            print(error.localizedDescription)
+        }
+        
         return true
     }
 
