@@ -26,10 +26,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let sortDescriptor = NSSortDescriptor(key: "title", ascending: false)
         notebookRequest.sortDescriptors = [sortDescriptor]
         
+        /*
+        //A basic predicate will return a notebook based on the contents of its title string
         let keyPath = "title"
         let searchString = "Lots"
         let notebookPredicate = NSPredicate(format: "%K CONTAINS[c] %@", keyPath, searchString)
-//        let notebookPredicate = NSPredicate(format: "title CONTAINS 'Evil'")
+//        let notebookPredicate = NSPredicate(format: "title CONTAINS 'Lots'")*/
+
+        //This more complex predicate will return a noteboook that has ANY one note that CONTAINS the given string.
+        let notebookPredicate = NSPredicate(format: "ANY note.title CONTAINS[c] 'Number 20'")
+            
         notebookRequest.predicate = notebookPredicate
         
         var notebookArray = [Notebook]()
