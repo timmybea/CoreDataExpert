@@ -26,8 +26,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let sortDescriptor = NSSortDescriptor(key: "title", ascending: false)
         notebookRequest.sortDescriptors = [sortDescriptor]
         
-        
-        let notebookPredicate = NSPredicate(format: "title CONTAINS 'Evil'")
+        let keyPath = "title"
+        let searchString = "Lots"
+        let notebookPredicate = NSPredicate(format: "%K CONTAINS[c] %@", keyPath, searchString)
+//        let notebookPredicate = NSPredicate(format: "title CONTAINS 'Evil'")
         notebookRequest.predicate = notebookPredicate
         
         var notebookArray = [Notebook]()
@@ -40,16 +42,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         for notebook in notebookArray {
             print("This notebook is called \(notebook.title!) and was created at \(notebook.createdAt!)")
+            displayNotes(notebook: notebook)
         }
         
         
         //Create and save a managed object
-//        let notebookObject = Notebook(context: persistentContainer.viewContext)
-//        notebookObject.title = "Better Living"
+//        let notebookObject = Notebook(context: moc)
+//        notebookObject.title = "Lots of Notes"
 //        notebookObject.createdAt = Date() as NSDate
 //        
+//        //add a 'to-many' object to the notebook
+//        for index in 1...25 {
+//            
+//            let noteObject = Note(context: moc)
+//            noteObject.title = "Title Number \(index)"
+//            noteObject.content = "Content Number \(index)"
+//            noteObject.createdAt = Date() as NSDate
+//            
+//            notebookObject.addToNote(noteObject)
+//        }
+//        
 //        do {
-//            try persistentContainer.viewContext.save()
+//            try moc.save()
 //        } catch {
 //            print(error.localizedDescription)
 //        }
@@ -57,6 +71,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+    func displayNotes(notebook: Notebook) {
+        
+        if let noteSet = notebook.note as? Set<Note> {
+            
+            let noteOrderedArray = noteSet.sorted(by: { (noteA:Note, noteB:Note) -> Bool in
+                return noteA.createdAt?.compare(noteB.createdAt as! Date) == ComparisonResult.orderedAscending
+            })
+            
+            for note in noteOrderedArray {
+                print("Note title: \(note.title!)")
+            }
+        }
+    }
+    
+    
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

@@ -33,6 +33,8 @@ let notebookPredicate = NSPredicate(format: "title CONTAINS 'Evil'")
 
 Notice that predicates are is case-sensitive, so 'evil' would not return any results...
 
+CONTAINS = exact string contained in the value (case-sensitive)
+CONTAINT[c] = same as above but not case-sensitive
 
 
 
