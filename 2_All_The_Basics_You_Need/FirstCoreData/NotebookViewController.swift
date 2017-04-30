@@ -1,38 +1,50 @@
-Notes.txt
-
-4.16 ADDING ONE ENTITY TO ANOTHER
-
+//
+//  NotebookViewController.swift
+//  FirstCoreData
+//
+//  Created by Tim Beals on 2017-04-29.
+//  Copyright © 2017 Tim Beals. All rights reserved.
+//
 
 import UIKit
 import CoreData
 
-class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class NotebookViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
 
-    let fetchedResultsController: NSFetchedResultsController<Notebook>
-
-    let array = ["a", "b", "c", "d", "e"]
-
-
+    var fetchedResultsController: NSFetchedResultsController<Notebook>!
+    
     let tableView: UITableView = {
         let tableView = UITableView()
         return tableView
     }()
-
+    
     func setupFetchedResultsController() {
-
+        
         let fetchRequest: NSFetchRequest<Notebook> = Notebook.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "createdAt", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
-
+        
+        let moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
+        fetchedResultsController.delegate = self
+        
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.title = "Notebook Table"
-
+        
         tableViewSetup()
-
+        setupFetchedResultsController()
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,34 +53,37 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
 
     func tableViewSetup() {
-
+        
         tableView.frame = view.bounds
         view.addSubview(tableView)
-
+        
         tableView.delegate = self
         tableView.dataSource = self
     }
-
-
+    
+    
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return fetchedResultsController.sections!.count
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return array.count
+        if let sections = fetchedResultsController.sections {
+            let sectionInfo = sections[section]
+            return sectionInfo.numberOfObjects
+        }
+        return 0
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier")
+        
         if (cell == nil) {
             cell = UITableViewCell(style: .default, reuseIdentifier: "cellIdentifier")
         }
-
-        cell?.textLabel?.text = array[indexPath.row]
-
+        let notebook = fetchedResultsController.object(at: indexPath)
+        
+        cell?.textLabel?.text = notebook.title
+        
         return cell!
     }
-
-
 }
-

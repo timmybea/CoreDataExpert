@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B0057D591EB5672800C33FEF /* NotebookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0057D581EB5672800C33FEF /* NotebookViewController.swift */; };
 		B088A2461EB27A9A007A9F04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B088A2451EB27A9A007A9F04 /* AppDelegate.swift */; };
-		B088A2481EB27A9A007A9F04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B088A2471EB27A9A007A9F04 /* ViewController.swift */; };
 		B088A24B1EB27A9A007A9F04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B088A2491EB27A9A007A9F04 /* Main.storyboard */; };
 		B088A24D1EB27A9A007A9F04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B088A24C1EB27A9A007A9F04 /* Assets.xcassets */; };
 		B088A2501EB27A9A007A9F04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B088A24E1EB27A9A007A9F04 /* LaunchScreen.storyboard */; };
@@ -16,9 +16,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B0057D581EB5672800C33FEF /* NotebookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotebookViewController.swift; path = ../NotebookViewController.swift; sourceTree = "<group>"; };
 		B088A2421EB27A9A007A9F04 /* FirstCoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirstCoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B088A2451EB27A9A007A9F04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B088A2471EB27A9A007A9F04 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B088A24A1EB27A9A007A9F04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B088A24C1EB27A9A007A9F04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B088A24F1EB27A9A007A9F04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -56,8 +56,8 @@
 		B088A2441EB27A9A007A9F04 /* FirstCoreData */ = {
 			isa = PBXGroup;
 			children = (
+				B0057D581EB5672800C33FEF /* NotebookViewController.swift */,
 				B088A2451EB27A9A007A9F04 /* AppDelegate.swift */,
-				B088A2471EB27A9A007A9F04 /* ViewController.swift */,
 				B088A2491EB27A9A007A9F04 /* Main.storyboard */,
 				B088A24C1EB27A9A007A9F04 /* Assets.xcassets */,
 				B088A24E1EB27A9A007A9F04 /* LaunchScreen.storyboard */,
@@ -141,8 +141,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B088A2591EB27ABA007A9F04 /* FirstCoreDataModel.xcdatamodeld in Sources */,
-				B088A2481EB27A9A007A9F04 /* ViewController.swift in Sources */,
 				B088A2461EB27A9A007A9F04 /* AppDelegate.swift in Sources */,
+				B0057D591EB5672800C33FEF /* NotebookViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +306,7 @@
 				B088A2561EB27A9A007A9F04 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
