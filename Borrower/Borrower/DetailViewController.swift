@@ -7,24 +7,38 @@
 //
 
 import UIKit
+import CoreData
 
-class DetailViewController: UIViewController {
+class DetailViewController: UITableViewController {
 
-    @IBOutlet weak var detailDescriptionLabel: UILabel!
-
-
+    @IBOutlet weak var itemTitleTF: UITextField!
+    @IBOutlet weak var itemImageView: UIImageView!
+    @IBOutlet weak var borrowedOnLabel: UILabel!
+    @IBOutlet weak var returnedOnLabel: UILabel!
+    @IBOutlet weak var personImageView: UIImageView!
+    @IBOutlet weak var personNameTF: UITextField!
+    
+    var moc: NSManagedObjectContext!
+    
+    var detailItem: BorrowItem? {
+        didSet {
+            // Update the view.
+            self.configureView()
+        }
+    }
+    
     func configureView() {
         // Update the user interface for the detail item.
-        if let detail = self.detailItem {
-            if let label = self.detailDescriptionLabel {
-                label.text = detail.timestamp!.description
-            }
-        }
+
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+        
+        
         self.configureView()
     }
 
@@ -33,12 +47,30 @@ class DetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    var detailItem: Event? {
-        didSet {
-            // Update the view.
-            self.configureView()
+    
+    @IBAction func saveItemTouched(_ sender: Any) {
+        
+        if detailItem == nil { //create new borrow item
+            
+            let borrowItem = BorrowItem(context: moc)
+            
+            if itemTitleTF.text != nil {
+                borrowItem.itemName = itemTitleTF.text
+            }
+
+            
+            
+            
+        } //else update an existing borrow item
+        
+        do {
+            try moc.save()
+        } catch {
+            print(error.localizedDescription)
         }
+        
     }
+
 
 
 }

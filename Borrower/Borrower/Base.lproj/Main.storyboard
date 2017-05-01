@@ -53,18 +53,18 @@
                                 <rect key="frame" x="0.0" y="22" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WCw-Qf-5nD" id="37f-cq-3Eg">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Arm-wq-HPj">
-                                            <rect key="frame" x="15" y="4" width="34" height="21"/>
+                                            <rect key="frame" x="15" y="5" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Al4-ek-U0y">
-                                            <rect key="frame" x="15" y="25" width="44" height="15"/>
+                                            <rect key="frame" x="15" y="25.5" width="44" height="14.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
@@ -86,15 +86,19 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="Zdf-7t-Un8">
                         <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="6od-vQ-tgK">
-                            <rect key="frame" x="85" y="7" width="205" height="30"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="6od-vQ-tgK">
+                            <rect key="frame" x="83" y="7" width="209" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="Sort by Date"/>
                                 <segment title="Sort by Person"/>
                             </segments>
                         </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="IwK-6S-YwE"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="IwK-6S-YwE">
+                            <connections>
+                                <segue destination="vC3-pB-5Vb" kind="showDetail" identifier="addItem" id="aVK-7E-3zi"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
@@ -117,10 +121,10 @@
             </objects>
             <point key="canvasLocation" x="-45" y="129"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="kha-eM-ec4">
             <objects>
-                <tableViewController id="KtP-uV-q2q" sceneMemberID="viewController">
+                <tableViewController id="KtP-uV-q2q" customClass="DetailViewController" customModule="Borrower" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="cN7-uM-DUR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -129,10 +133,10 @@
                             <tableViewSection headerTitle="Item Description" id="ptt-IT-cY4">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="49" id="XTG-Bk-w8B">
-                                        <rect key="frame" x="0.0" y="56" width="375" height="49"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="49"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XTG-Bk-w8B" id="KSM-Wh-osP">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="48.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Item Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sxb-bG-myS">
@@ -150,10 +154,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="135" id="Bpb-0b-tCn">
-                                        <rect key="frame" x="0.0" y="105" width="375" height="135"/>
+                                        <rect key="frame" x="0.0" y="104.5" width="375" height="135"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bpb-0b-tCn" id="FDy-h2-1g0">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="134"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="134.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dummyImage" translatesAutoresizingMaskIntoConstraints="NO" id="I7e-RN-y0e">
@@ -210,10 +214,10 @@
                             <tableViewSection headerTitle="Item Borrowed By" id="dgP-9i-sCe">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="135" id="SBs-rj-Vgb">
-                                        <rect key="frame" x="0.0" y="297" width="375" height="135"/>
+                                        <rect key="frame" x="0.0" y="295.5" width="375" height="135"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SBs-rj-Vgb" id="P7y-hL-ak1">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="134"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="134.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dummyImage" translatesAutoresizingMaskIntoConstraints="NO" id="Rbj-Bm-RhO">
@@ -251,8 +255,20 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="eUa-Mc-Gj2">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="3EI-S9-BRq"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="3EI-S9-BRq">
+                            <connections>
+                                <action selector="saveItemTouched:" destination="KtP-uV-q2q" id="ryv-Te-9K1"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="borrowedOnLabel" destination="uzs-Ro-WUb" id="EUV-2C-GIY"/>
+                        <outlet property="itemImageView" destination="I7e-RN-y0e" id="pcX-e0-1ee"/>
+                        <outlet property="itemTitleTF" destination="Sxb-bG-myS" id="g5l-Yn-7fC"/>
+                        <outlet property="personImageView" destination="Rbj-Bm-RhO" id="58K-0j-YJR"/>
+                        <outlet property="personNameTF" destination="peS-eb-guT" id="tAL-Mc-El6"/>
+                        <outlet property="returnedOnLabel" destination="fbz-a2-zBE" id="mU4-Cn-m0G"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Goj-y5-AI9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -263,6 +279,6 @@
         <image name="dummyImage" width="120" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6S0-TO-JiA"/>
+        <segue reference="aVK-7E-3zi"/>
     </inferredMetricsTieBreakers>
 </document>
