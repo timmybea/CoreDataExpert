@@ -29,6 +29,12 @@ class DetailViewController: UITableViewController {
     
     func configureView() {
         // Update the user interface for the detail item.
+        if let itemTextField = itemTitleTF {
+            if let borrowItem = detailItem {
+                itemTextField.text = borrowItem.itemName
+            }
+        }
+        
 
     }
 
