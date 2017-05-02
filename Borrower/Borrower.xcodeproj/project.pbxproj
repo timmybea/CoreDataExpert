@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B00B1E861EB8F76A00066C21 /* UIImage+Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00B1E851EB8F76A00066C21 /* UIImage+Scale.swift */; };
 		B02922D91EB7B8330045E1BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02922D81EB7B8330045E1BF /* AppDelegate.swift */; };
 		B02922DC1EB7B8330045E1BF /* Borrower.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B02922DA1EB7B8330045E1BF /* Borrower.xcdatamodeld */; };
 		B02922DE1EB7B8330045E1BF /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02922DD1EB7B8330045E1BF /* MasterViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B00B1E851EB8F76A00066C21 /* UIImage+Scale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+Scale.swift"; path = "../../../../Downloads/UIImage+Scale.swift"; sourceTree = "<group>"; };
 		B02922D51EB7B8330045E1BF /* Borrower.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Borrower.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B02922D81EB7B8330045E1BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B02922DB1EB7B8330045E1BF /* Borrower.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Borrower.xcdatamodel; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 		B02922D71EB7B8330045E1BF /* Borrower */ = {
 			isa = PBXGroup;
 			children = (
+				B00B1E851EB8F76A00066C21 /* UIImage+Scale.swift */,
 				B02922D81EB7B8330045E1BF /* AppDelegate.swift */,
 				B02922DD1EB7B8330045E1BF /* MasterViewController.swift */,
 				B02922DF1EB7B8330045E1BF /* DetailViewController.swift */,
@@ -146,6 +149,7 @@
 				B02922D91EB7B8330045E1BF /* AppDelegate.swift in Sources */,
 				B02922DC1EB7B8330045E1BF /* Borrower.xcdatamodeld in Sources */,
 				B02922DE1EB7B8330045E1BF /* MasterViewController.swift in Sources */,
+				B00B1E861EB8F76A00066C21 /* UIImage+Scale.swift in Sources */,
 				B02922E01EB7B8330045E1BF /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,6 +312,7 @@
 				B02922EE1EB7B8330045E1BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

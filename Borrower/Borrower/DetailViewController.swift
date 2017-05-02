@@ -106,23 +106,20 @@ class DetailViewController: UITableViewController, UIImagePickerControllerDelega
     //MARK: ImagePickerController delegate method
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let image = info[UIImagePickerControllerOriginalImage] {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             
             //scale image to make file size smaller
+            let scaledImage = UIImage.scaleImage(image: image, toWidth: itemImageView.frame.width, andHeight: itemImageView.frame.height)
             
             if picturePurposeSelector == .item {
-                
                 //add to item imageView
-                
+                itemImageView.image = scaledImage
                 itemImageAdded = true
             } else {
-                
                 //add to person imageView
-                
+                personImageView.image = scaledImage
                 personImageAdded = true
             }
-            
-            
         }
     }
 }
