@@ -59,8 +59,6 @@ class DetailViewController: UITableViewController {
             }
 
             
-            
-            
         } //else update an existing borrow item
         
         do {
@@ -68,7 +66,6 @@ class DetailViewController: UITableViewController {
         } catch {
             print(error.localizedDescription)
         }
-        
     }
 
 
