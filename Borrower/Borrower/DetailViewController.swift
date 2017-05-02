@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class DetailViewController: UITableViewController {
+class DetailViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var itemTitleTF: UITextField!
     @IBOutlet weak var itemImageView: UIImageView!
@@ -34,15 +34,28 @@ class DetailViewController: UITableViewController {
                 itemTextField.text = borrowItem.itemName
             }
         }
-        
-
     }
+    
+    var personImageAdded = false
+    var itemImageAdded = false
+    
+    enum PicturePurpose {
+        case item
+        case person
+    }
+    
+    var picturePurposeSelector: PicturePurpose = .item
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
+        let itemGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(addPictureToItem))
+        itemImageView.addGestureRecognizer(itemGestureRecognizer)
+        
+        let personGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(addPictureToPerson))
+        personImageView.addGestureRecognizer(personGestureRecognizer)
         
         
         self.configureView()
@@ -52,7 +65,6 @@ class DetailViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
     
     @IBAction func saveItemTouched(_ sender: Any) {
         
@@ -63,8 +75,6 @@ class DetailViewController: UITableViewController {
             if itemTitleTF.text != nil {
                 borrowItem.itemName = itemTitleTF.text
             }
-
-            
         } //else update an existing borrow item
         
         do {
@@ -74,7 +84,46 @@ class DetailViewController: UITableViewController {
         }
     }
 
+    func addPictureToItem() {
+        picturePurposeSelector = .item
+        addImageWithPurpose()
+    }
 
+    func addPictureToPerson() {
+        picturePurposeSelector = .person
+        addImageWithPurpose()
+    }
+    
+    func addImageWithPurpose() {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = .photoLibrary
+        
+        self.present(imagePickerController, animated: true)
+    }
 
+    
+    //MARK: ImagePickerController delegate method
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerOriginalImage] {
+            
+            //scale image to make file size smaller
+            
+            if picturePurposeSelector == .item {
+                
+                //add to item imageView
+                
+                itemImageAdded = true
+            } else {
+                
+                //add to person imageView
+                
+                personImageAdded = true
+            }
+            
+            
+        }
+    }
 }
 
