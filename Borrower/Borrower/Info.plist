@@ -38,6 +38,8 @@
 			<false/>
 		</dict>
 	</dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>&quot;App would like to access photo library to add images to your items and friends&quot;</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

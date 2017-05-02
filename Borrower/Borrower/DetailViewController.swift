@@ -22,16 +22,23 @@ class DetailViewController: UITableViewController, UIImagePickerControllerDelega
     
     var detailItem: BorrowItem? {
         didSet {
-            // Update the view.
             self.configureView()
         }
     }
     
     func configureView() {
         // Update the user interface for the detail item.
-        if let itemTextField = itemTitleTF {
-            if let borrowItem = detailItem {
+        
+        if let borrowItem = detailItem {
+            if let itemTextField = itemTitleTF {
                 itemTextField.text = borrowItem.itemName
+            }
+            
+            
+            if let imageView = itemImageView {
+                if let availableImageData = borrowItem.image as? Data {
+                    itemImageView.image = UIImage(data: availableImageData)
+                }
             }
         }
     }
@@ -49,6 +56,8 @@ class DetailViewController: UITableViewController, UIImagePickerControllerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.configureView()
+        
         moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
         let itemGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(addPictureToItem))
@@ -57,8 +66,6 @@ class DetailViewController: UITableViewController, UIImagePickerControllerDelega
         let personGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(addPictureToPerson))
         personImageView.addGestureRecognizer(personGestureRecognizer)
         
-        
-        self.configureView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -75,6 +82,15 @@ class DetailViewController: UITableViewController, UIImagePickerControllerDelega
             if itemTitleTF.text != nil {
                 borrowItem.itemName = itemTitleTF.text
             }
+            
+            if let itemImage = itemImageView.image {
+                borrowItem.image = NSData(data: UIImageJPEGRepresentation(itemImage, 0.3)!)
+            }
+
+            
+            
+            print("hello")
+            
         } //else update an existing borrow item
         
         do {
@@ -121,6 +137,11 @@ class DetailViewController: UITableViewController, UIImagePickerControllerDelega
                 personImageAdded = true
             }
         }
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
     }
 }
 
