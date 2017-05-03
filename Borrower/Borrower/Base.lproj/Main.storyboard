@@ -230,7 +230,7 @@
                                                         <constraint firstAttribute="height" constant="120" id="tjf-4l-40d"/>
                                                     </constraints>
                                                 </imageView>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Person's Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="peS-eb-guT">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Person's Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="peS-eb-guT" customClass="MLPAutoCompleteTextField">
                                                     <rect key="frame" x="142" y="57.5" width="218" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="azr-Ti-yhl"/>

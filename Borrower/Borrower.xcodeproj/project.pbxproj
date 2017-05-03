@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B00B1E861EB8F76A00066C21 /* UIImage+Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00B1E851EB8F76A00066C21 /* UIImage+Scale.swift */; };
 		B00B1E9D1EB94C5000066C21 /* GLCalendarDateRange.m in Sources */ = {isa = PBXBuildFile; fileRef = B00B1E891EB94C5000066C21 /* GLCalendarDateRange.m */; };
 		B00B1E9E1EB94C5000066C21 /* GLCalendarDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B00B1E8C1EB94C5000066C21 /* GLCalendarDayCell.m */; };
 		B00B1E9F1EB94C5000066C21 /* GLCalendarDayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B00B1E8D1EB94C5000066C21 /* GLCalendarDayCell.xib */; };
@@ -22,6 +21,9 @@
 		B00B1EA81EB94C5000066C21 /* gl-calendar-shadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B00B1E9B1EB94C5000066C21 /* gl-calendar-shadow@2x.png */; };
 		B00B1EA91EB94C5000066C21 /* gl-calendar-shadow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B00B1E9C1EB94C5000066C21 /* gl-calendar-shadow@3x.png */; };
 		B00B1EAD1EB94FFD00066C21 /* TimeframeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00B1EAC1EB94FFD00066C21 /* TimeframeViewController.swift */; };
+		B00B1EAF1EBA4E0B00066C21 /* UIImage+Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00B1EAE1EBA4E0B00066C21 /* UIImage+Scale.swift */; };
+		B00B1EB81EBA4E5F00066C21 /* MLPAutoCompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = B00B1EB21EBA4E5F00066C21 /* MLPAutoCompleteTextField.m */; };
+		B00B1EB91EBA4E5F00066C21 /* NSString+Levenshtein.m in Sources */ = {isa = PBXBuildFile; fileRef = B00B1EB71EBA4E5F00066C21 /* NSString+Levenshtein.m */; };
 		B02922D91EB7B8330045E1BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02922D81EB7B8330045E1BF /* AppDelegate.swift */; };
 		B02922DC1EB7B8330045E1BF /* Borrower.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B02922DA1EB7B8330045E1BF /* Borrower.xcdatamodeld */; };
 		B02922DE1EB7B8330045E1BF /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02922DD1EB7B8330045E1BF /* MasterViewController.swift */; };
@@ -32,7 +34,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B00B1E851EB8F76A00066C21 /* UIImage+Scale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+Scale.swift"; path = "../../../../Downloads/UIImage+Scale.swift"; sourceTree = "<group>"; };
 		B00B1E881EB94C5000066C21 /* GLCalendarDateRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLCalendarDateRange.h; sourceTree = "<group>"; };
 		B00B1E891EB94C5000066C21 /* GLCalendarDateRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLCalendarDateRange.m; sourceTree = "<group>"; };
 		B00B1E8B1EB94C5000066C21 /* GLCalendarDayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLCalendarDayCell.h; sourceTree = "<group>"; };
@@ -54,6 +55,14 @@
 		B00B1E9C1EB94C5000066C21 /* gl-calendar-shadow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gl-calendar-shadow@3x.png"; sourceTree = "<group>"; };
 		B00B1EAA1EB94CBC00066C21 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		B00B1EAC1EB94FFD00066C21 /* TimeframeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeframeViewController.swift; sourceTree = "<group>"; };
+		B00B1EAE1EBA4E0B00066C21 /* UIImage+Scale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Scale.swift"; sourceTree = "<group>"; };
+		B00B1EB11EBA4E5F00066C21 /* MLPAutoCompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPAutoCompleteTextField.h; sourceTree = "<group>"; };
+		B00B1EB21EBA4E5F00066C21 /* MLPAutoCompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPAutoCompleteTextField.m; sourceTree = "<group>"; };
+		B00B1EB31EBA4E5F00066C21 /* MLPAutoCompleteTextFieldDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPAutoCompleteTextFieldDataSource.h; sourceTree = "<group>"; };
+		B00B1EB41EBA4E5F00066C21 /* MLPAutoCompleteTextFieldDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPAutoCompleteTextFieldDelegate.h; sourceTree = "<group>"; };
+		B00B1EB51EBA4E5F00066C21 /* MLPAutoCompletionObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPAutoCompletionObject.h; sourceTree = "<group>"; };
+		B00B1EB61EBA4E5F00066C21 /* NSString+Levenshtein.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Levenshtein.h"; sourceTree = "<group>"; };
+		B00B1EB71EBA4E5F00066C21 /* NSString+Levenshtein.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Levenshtein.m"; sourceTree = "<group>"; };
 		B02922D51EB7B8330045E1BF /* Borrower.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Borrower.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B02922D81EB7B8330045E1BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B02922DB1EB7B8330045E1BF /* Borrower.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Borrower.xcdatamodel; sourceTree = "<group>"; };
@@ -121,10 +130,25 @@
 		B00B1EAB1EB94E2E00066C21 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				B00B1EB01EBA4E5F00066C21 /* MLPAutoCompleteTextField */,
+				B00B1EAE1EBA4E0B00066C21 /* UIImage+Scale.swift */,
 				B00B1E871EB94C5000066C21 /* Sources */,
-				B00B1E851EB8F76A00066C21 /* UIImage+Scale.swift */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		B00B1EB01EBA4E5F00066C21 /* MLPAutoCompleteTextField */ = {
+			isa = PBXGroup;
+			children = (
+				B00B1EB11EBA4E5F00066C21 /* MLPAutoCompleteTextField.h */,
+				B00B1EB21EBA4E5F00066C21 /* MLPAutoCompleteTextField.m */,
+				B00B1EB31EBA4E5F00066C21 /* MLPAutoCompleteTextFieldDataSource.h */,
+				B00B1EB41EBA4E5F00066C21 /* MLPAutoCompleteTextFieldDelegate.h */,
+				B00B1EB51EBA4E5F00066C21 /* MLPAutoCompletionObject.h */,
+				B00B1EB61EBA4E5F00066C21 /* NSString+Levenshtein.h */,
+				B00B1EB71EBA4E5F00066C21 /* NSString+Levenshtein.m */,
+			);
+			path = MLPAutoCompleteTextField;
 			sourceTree = "<group>";
 		};
 		B02922CC1EB7B8330045E1BF = {
@@ -244,13 +268,15 @@
 				B00B1E9D1EB94C5000066C21 /* GLCalendarDateRange.m in Sources */,
 				B00B1EAD1EB94FFD00066C21 /* TimeframeViewController.swift in Sources */,
 				B02922D91EB7B8330045E1BF /* AppDelegate.swift in Sources */,
+				B00B1EB91EBA4E5F00066C21 /* NSString+Levenshtein.m in Sources */,
 				B00B1EA41EB94C5000066C21 /* GLDateUtils.m in Sources */,
 				B02922DC1EB7B8330045E1BF /* Borrower.xcdatamodeld in Sources */,
 				B00B1EA11EB94C5000066C21 /* GLCalendarMonthCoverView.m in Sources */,
+				B00B1EAF1EBA4E0B00066C21 /* UIImage+Scale.swift in Sources */,
 				B00B1EA01EB94C5000066C21 /* GLCalendarDayCellBackgroundCover.m in Sources */,
 				B02922DE1EB7B8330045E1BF /* MasterViewController.swift in Sources */,
+				B00B1EB81EBA4E5F00066C21 /* MLPAutoCompleteTextField.m in Sources */,
 				B00B1E9E1EB94C5000066C21 /* GLCalendarDayCell.m in Sources */,
-				B00B1E861EB8F76A00066C21 /* UIImage+Scale.swift in Sources */,
 				B02922E01EB7B8330045E1BF /* DetailViewController.swift in Sources */,
 				B00B1EA21EB94C5000066C21 /* GLCalendarView.m in Sources */,
 			);
