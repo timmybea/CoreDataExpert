@@ -88,7 +88,18 @@ class DetailViewController: UITableViewController, UIImagePickerControllerDelega
                     returnOnLabel.text = "Borrow on: \(dateFormatter.string(from: availableEndDate as Date))"
                 }
             }
-        
+            
+            if let person = borrowItem.person {
+                if let imageView = personImageView {
+                    if let imageData = person.image as? Data {
+                        imageView.image = UIImage(data: imageData)
+                    }
+                }
+                
+                if let textField = personNameTF {
+                    textField.text = person.name
+                }
+            }        
         }
     }
     
@@ -129,28 +140,37 @@ class DetailViewController: UITableViewController, UIImagePickerControllerDelega
                 
                 let numberOfResults = try! moc.count(for: fetchRequest)
                 
+                
+                var currentPerson: Person? = nil
+                
                 if numberOfResults == 0 { //create a new person
                     
-                    let newPerson = Person(context: moc)
-                    
-                    newPerson.name = name
-                    
-                    if let image = personImageView.image {
-                        
-                        newPerson.image = NSData(data: UIImageJPEGRepresentation(image, 0.3)!)
-                        
-                        
-                    }
-                    
-                    
+                    currentPerson = Person(context: moc)
                     
                 } else { //add existing person
                     
+                    var persons = [Person]()
+                    
+                    do {
+                        persons = try moc.fetch(fetchRequest)
+                    } catch {
+                        print(error)
+                    }
+                    
+                    if let foundPerson = persons.first {
+                        currentPerson = foundPerson
+                    }
                 }
                 
-                
-                
-                
+                //allow user to save or update person info
+                if let currentPerson = currentPerson {
+                    currentPerson.name = name
+                    
+                    if let image = personImageView.image {
+                        currentPerson.image = NSData(data: UIImageJPEGRepresentation(image, 0.3)!)
+                    }
+                    currentPerson.addToBorrowItem(borrowItem)
+                }
             }
             
             
