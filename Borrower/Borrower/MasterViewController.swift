@@ -51,8 +51,6 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         do {
             try _fetchedResultsController!.performFetch()
         } catch {
-            // Replace this implementation with code to handle the error appropriately.
-            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
             let nserror = error as NSError
             fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
         }
@@ -124,6 +122,25 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let context = self.fetchedResultsController.managedObjectContext
+            context.delete(self.fetchedResultsController.object(at: indexPath))
+            
+            do {
+                try context.save()
+            } catch {
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
+        }
+    }
+
+    
     func configureCell(_ cell: UITableViewCell, withBorrowItem borrowItem: BorrowItem) {
  
         cell.textLabel?.text = borrowItem.itemName
@@ -148,73 +165,38 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         
     
     }
-
-    /*
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            let context = self.fetchedResultsController.managedObjectContext
-            context.delete(self.fetchedResultsController.object(at: indexPath))
-                
-            do {
-                try context.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
-        }
-    }
-*/
     
-   
-    /*
-     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-     self.tableView.beginUpdates()
-     }
-     
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
-        switch type {
-            case .insert:
-                self.tableView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
-            case .delete:
-                self.tableView.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
-            default:
-                return
-        }
+    //MARK: Fetched results controller - Update tableview with changed from detailvc
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.tableView.beginUpdates()
     }
-
+    
+//    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+//        switch type {
+//        case .insert:
+//            self.tableView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
+//        case .delete:
+//            self.tableView.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
+//        default:
+//            return
+//        }
+//    }
+    
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
-            case .insert:
-                tableView.insertRows(at: [newIndexPath!], with: .fade)
-            case .delete:
-                tableView.deleteRows(at: [indexPath!], with: .fade)
-            case .update:
-                self.configureCell(tableView.cellForRow(at: indexPath!)!, withEvent: anObject as! Event)
-            case .move:
-                tableView.moveRow(at: indexPath!, to: newIndexPath!)
+        case .insert:
+            tableView.insertRows(at: [newIndexPath!], with: .fade)
+        case .delete:
+            tableView.deleteRows(at: [indexPath!], with: .fade)
+        default:
+            configureCell(tableView.cellForRow(at: indexPath!)!, withBorrowItem: anObject as! BorrowItem)
         }
     }
-
+    
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.tableView.endUpdates()
     }
-
-    /*
-     // Implementing the above methods to update the table view in response to individual changes may have performance implications if a large number of changes are made simultaneously. If this proves to be an issue, you can instead just implement controllerDidChangeContent: which notifies the delegate that all section and object changes have been processed.
-     
-     func controllerDidChangeContent(controller: NSFetchedResultsController) {
-         // In the simplest, most efficient, case, reload the table view.
-         self.tableView.reloadData()
-     }
-     */
-*/
 
 }
 

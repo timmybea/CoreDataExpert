@@ -177,17 +177,13 @@ class DetailViewController: UITableViewController, UIImagePickerControllerDelega
                     currentPerson.addToBorrowItem(borrowItem)
                 }
             }
-            
-            
-            
         }
-        
-        
         do {
             try moc.save()
         } catch {
             print(error.localizedDescription)
         }
+        dismiss(animated: true, completion: nil)
     }
 
     func addPictureToItem() {
