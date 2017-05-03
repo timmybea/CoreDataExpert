@@ -26,22 +26,8 @@ class DetailViewController: UITableViewController, UIImagePickerControllerDelega
         }
     }
     
-    func configureView() {
-        // Update the user interface for the detail item.
-        
-        if let borrowItem = detailItem {
-            if let itemTextField = itemTitleTF {
-                itemTextField.text = borrowItem.itemName
-            }
-            
-            
-            if let imageView = itemImageView {
-                if let availableImageData = borrowItem.image as? Data {
-                    imageView.image = UIImage(data: availableImageData)
-                }
-            }
-        }
-    }
+    var beginDate: NSDate?
+    var endDate: NSDate?
     
     var personImageAdded = false
     var itemImageAdded = false
@@ -73,12 +59,51 @@ class DetailViewController: UITableViewController, UIImagePickerControllerDelega
         // Dispose of any resources that can be recreated.
     }
     
+    func configureView() {
+        // Update the user interface for the detail item.
+        
+        if let borrowItem = detailItem {
+            if let itemTextField = itemTitleTF {
+                itemTextField.text = borrowItem.itemName
+            }
+            
+            
+            if let imageView = itemImageView {
+                if let availableImageData = borrowItem.image as? Data {
+                    imageView.image = UIImage(data: availableImageData)
+                }
+            }
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM/dd/yyyy"
+
+            if let borrowOnLabel = borrowedOnLabel {
+                if let availableStartDate = borrowItem.borrowFrom {
+                    borrowOnLabel.text = "Borrow on: \(dateFormatter.string(from: availableStartDate as Date))"
+                }
+            }
+
+            if let returnOnLabel = returnedOnLabel {
+                if let availableEndDate = borrowItem.borrowTo {
+                    returnOnLabel.text = "Borrow on: \(dateFormatter.string(from: availableEndDate as Date))"
+                }
+            }
+        
+        }
+    }
+    
     @IBAction func saveItemTouched(_ sender: Any) {
         
-        if detailItem == nil { //create new borrow item
-            
-            let borrowItem = BorrowItem(context: moc)
-            
+        var borrowItem: BorrowItem?
+        
+        if detailItem == nil {
+            borrowItem = BorrowItem(context: moc)
+        } else {
+            borrowItem = detailItem
+        }
+        
+        
+        if let borrowItem = borrowItem {
             if itemTitleTF.text != nil {
                 borrowItem.itemName = itemTitleTF.text
             }
@@ -86,12 +111,52 @@ class DetailViewController: UITableViewController, UIImagePickerControllerDelega
             if let itemImage = itemImageView.image {
                 borrowItem.image = NSData(data: UIImageJPEGRepresentation(itemImage, 0.3)!)
             }
-
+            
+            if let availableStartDate = beginDate {
+                borrowItem.borrowFrom = availableStartDate
+            }
+            
+            if let availableEndDate = endDate {
+                borrowItem.borrowTo = availableEndDate
+            }
+            
+            let fetchRequest: NSFetchRequest<Person> = Person.fetchRequest()
+            
+            if let name = personNameTF.text {
+                fetchRequest.predicate = NSPredicate(format: "name == %@", name)
+                
+                fetchRequest.fetchLimit = 1
+                
+                let numberOfResults = try! moc.count(for: fetchRequest)
+                
+                if numberOfResults == 0 { //create a new person
+                    
+                    let newPerson = Person(context: moc)
+                    
+                    newPerson.name = name
+                    
+                    if let image = personImageView.image {
+                        
+                        newPerson.image = NSData(data: UIImageJPEGRepresentation(image, 0.3)!)
+                        
+                        
+                    }
+                    
+                    
+                    
+                } else { //add existing person
+                    
+                }
+                
+                
+                
+                
+            }
             
             
-            print("hello")
             
-        } //else update an existing borrow item
+        }
+        
         
         do {
             try moc.save()
@@ -148,14 +213,14 @@ class DetailViewController: UITableViewController, UIImagePickerControllerDelega
     //MARK: Timeframe delegate method
     
     func didSelectTimeframe(dateRange: GLCalendarDateRange) {
-        let beginDate = dateRange.beginDate
-        let endDate = dateRange.endDate
         
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        beginDate = dateRange.beginDate as NSDate?
+        endDate = dateRange.endDate as NSDate?
         
-        
-//        print("Date range with begin \(beginDate) and end \(endDate)")
-        
-        
+        borrowedOnLabel.text = "Borrow on: \(dateFormatter.string(from: dateRange.beginDate))"
+        returnedOnLabel.text = "Return on: \(dateFormatter.string(from: dateRange.endDate))"
         
     }
     

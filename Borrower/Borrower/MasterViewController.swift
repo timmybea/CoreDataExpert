@@ -131,6 +131,21 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         if let availableImageData = borrowItem.image as? Data {
             cell.imageView?.image = UIImage(data: availableImageData)
         }
+        
+        if let availableStartDate = borrowItem.borrowFrom as? Date {
+            if let availableEndDate = borrowItem.borrowTo as? Date {
+             
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "MM/dd/yyyy"
+                
+                
+                let fromDate = dateFormatter.string(from: availableStartDate)
+                let toDate = dateFormatter.string(from: availableEndDate)
+                cell.detailTextLabel?.text = "Borrowed from: \(fromDate) to: \(toDate)"
+                
+            }
+        }
+        
     
     }
 
