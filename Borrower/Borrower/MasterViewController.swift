@@ -13,6 +13,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     var detailViewController: DetailViewController? = nil
     var managedObjectContext: NSManagedObjectContext? = nil //this is set in the appDelegate
+    
+    var sortType = "date"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +34,17 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
         super.viewWillAppear(animated)
     }
+    
+    //MARK: segmentted control
+    @IBAction func sortChanged(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            sortType = "date"
+        } else {
+            sortType = "person"
+        }
+        tableView.reloadData()
+    }
+    
 
     // MARK: - Fetched results controller
     
@@ -44,7 +57,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         fetchRequest.fetchBatchSize = 20
         let sortDescriptor = NSSortDescriptor(key: "borrowTo", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
-        let aFetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.managedObjectContext!, sectionNameKeyPath: nil, cacheName: "Master")
+        let aFetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.managedObjectContext!, sectionNameKeyPath: "person.name", cacheName: "Master")
         aFetchedResultsController.delegate = self
         _fetchedResultsController = aFetchedResultsController
         
@@ -66,27 +79,6 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         // Dispose of any resources that can be recreated.
     }
     
-         /*
-    func insertNewObject(_ sender: Any) {
-
-     let context = self.fetchedResultsController.managedObjectContext
-        let newEvent = Event(context: context)
-             
-        // If appropriate, configure the new managed object.
-        newEvent.timestamp = NSDate()
-
-        // Save the context.
-        do {
-            try context.save()
-        } catch {
-            // Replace this implementation with code to handle the error appropriately.
-            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            let nserror = error as NSError
-            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-        }
-         
-    }
-*/
     // MARK: - Segues
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -105,6 +97,17 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return self.fetchedResultsController.sections?.count ?? 0
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if sortType == "date" {
+            return nil
+        } else {
+            if let sectionInfo = fetchedResultsController.sections?[section] {
+                return sectionInfo.name
+            }
+        }
+        return nil
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
