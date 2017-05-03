@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class DetailViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class DetailViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, TimeframeDelegate {
 
     @IBOutlet weak var itemTitleTF: UITextField!
     @IBOutlet weak var itemImageView: UIImageView!
@@ -37,7 +37,7 @@ class DetailViewController: UITableViewController, UIImagePickerControllerDelega
             
             if let imageView = itemImageView {
                 if let availableImageData = borrowItem.image as? Data {
-                    itemImageView.image = UIImage(data: availableImageData)
+                    imageView.image = UIImage(data: availableImageData)
                 }
             }
         }
@@ -142,6 +142,30 @@ class DetailViewController: UITableViewController, UIImagePickerControllerDelega
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    //MARK: Timeframe delegate method
+    
+    func didSelectTimeframe(dateRange: GLCalendarDateRange) {
+        let beginDate = dateRange.beginDate
+        let endDate = dateRange.endDate
+        
+        
+        
+//        print("Date range with begin \(beginDate) and end \(endDate)")
+        
+        
+        
+    }
+    
+    //MARK: segue method
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "setDateRange" {
+            let timeframeVC = segue.destination as! TimeframeViewController
+            timeframeVC.timeframeDelegate = self
+        }
     }
 }
 

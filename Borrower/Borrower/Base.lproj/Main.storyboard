@@ -193,6 +193,9 @@
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <state key="normal" title="Choose Timeframe"/>
+                                                    <connections>
+                                                        <segue destination="qGR-8S-RBd" kind="presentation" identifier="setDateRange" id="a8S-m8-gam"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -273,6 +276,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Goj-y5-AI9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="818.39999999999998" y="124.58770614692655"/>
+        </scene>
+        <!--Timeframe View Controller-->
+        <scene sceneID="jPU-UB-2ev">
+            <objects>
+                <viewController id="qGR-8S-RBd" customClass="TimeframeViewController" customModule="Borrower" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HU5-PT-gie"/>
+                        <viewControllerLayoutGuide type="bottom" id="Gog-XL-mlu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="u5T-Cp-lN5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Timeframe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wPe-7y-0HB">
+                                <rect key="frame" x="114.5" y="28" width="145.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zyh-O4-uGj">
+                                <rect key="frame" x="325" y="23" width="34" height="30"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="donePressed:" destination="qGR-8S-RBd" eventType="touchUpInside" id="q5P-qn-eqW"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="See-Am-CAz" customClass="GLCalendarView">
+                                <rect key="frame" x="0.0" y="66" width="375" height="601"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Zyh-O4-uGj" firstAttribute="trailing" secondItem="u5T-Cp-lN5" secondAttribute="trailingMargin" id="FxZ-tc-5Xy"/>
+                            <constraint firstItem="wPe-7y-0HB" firstAttribute="centerX" secondItem="u5T-Cp-lN5" secondAttribute="centerX" id="Xud-3z-ao3"/>
+                            <constraint firstItem="wPe-7y-0HB" firstAttribute="top" secondItem="HU5-PT-gie" secondAttribute="bottom" constant="8" id="mqD-Vk-6Vc"/>
+                            <constraint firstItem="Zyh-O4-uGj" firstAttribute="top" secondItem="HU5-PT-gie" secondAttribute="bottom" constant="3" id="nPm-bG-wkL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="calendarView" destination="See-Am-CAz" id="PZY-oR-r5S"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rp9-vC-8lx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1560.8" y="124.58770614692655"/>
         </scene>
     </scenes>
     <resources>

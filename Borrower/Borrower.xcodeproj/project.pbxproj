@@ -8,6 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		B00B1E861EB8F76A00066C21 /* UIImage+Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00B1E851EB8F76A00066C21 /* UIImage+Scale.swift */; };
+		B00B1E9D1EB94C5000066C21 /* GLCalendarDateRange.m in Sources */ = {isa = PBXBuildFile; fileRef = B00B1E891EB94C5000066C21 /* GLCalendarDateRange.m */; };
+		B00B1E9E1EB94C5000066C21 /* GLCalendarDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B00B1E8C1EB94C5000066C21 /* GLCalendarDayCell.m */; };
+		B00B1E9F1EB94C5000066C21 /* GLCalendarDayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B00B1E8D1EB94C5000066C21 /* GLCalendarDayCell.xib */; };
+		B00B1EA01EB94C5000066C21 /* GLCalendarDayCellBackgroundCover.m in Sources */ = {isa = PBXBuildFile; fileRef = B00B1E8F1EB94C5000066C21 /* GLCalendarDayCellBackgroundCover.m */; };
+		B00B1EA11EB94C5000066C21 /* GLCalendarMonthCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = B00B1E911EB94C5000066C21 /* GLCalendarMonthCoverView.m */; };
+		B00B1EA21EB94C5000066C21 /* GLCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = B00B1E931EB94C5000066C21 /* GLCalendarView.m */; };
+		B00B1EA31EB94C5000066C21 /* GLCalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B00B1E941EB94C5000066C21 /* GLCalendarView.xib */; };
+		B00B1EA41EB94C5000066C21 /* GLDateUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B00B1E961EB94C5000066C21 /* GLDateUtils.m */; };
+		B00B1EA51EB94C5000066C21 /* gl-calendar-magnify-glass.png in Resources */ = {isa = PBXBuildFile; fileRef = B00B1E981EB94C5000066C21 /* gl-calendar-magnify-glass.png */; };
+		B00B1EA61EB94C5000066C21 /* gl-calendar-magnify-glass@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B00B1E991EB94C5000066C21 /* gl-calendar-magnify-glass@2x.png */; };
+		B00B1EA71EB94C5000066C21 /* gl-calendar-shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = B00B1E9A1EB94C5000066C21 /* gl-calendar-shadow.png */; };
+		B00B1EA81EB94C5000066C21 /* gl-calendar-shadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B00B1E9B1EB94C5000066C21 /* gl-calendar-shadow@2x.png */; };
+		B00B1EA91EB94C5000066C21 /* gl-calendar-shadow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B00B1E9C1EB94C5000066C21 /* gl-calendar-shadow@3x.png */; };
+		B00B1EAD1EB94FFD00066C21 /* TimeframeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00B1EAC1EB94FFD00066C21 /* TimeframeViewController.swift */; };
 		B02922D91EB7B8330045E1BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02922D81EB7B8330045E1BF /* AppDelegate.swift */; };
 		B02922DC1EB7B8330045E1BF /* Borrower.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B02922DA1EB7B8330045E1BF /* Borrower.xcdatamodeld */; };
 		B02922DE1EB7B8330045E1BF /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02922DD1EB7B8330045E1BF /* MasterViewController.swift */; };
@@ -19,6 +33,27 @@
 
 /* Begin PBXFileReference section */
 		B00B1E851EB8F76A00066C21 /* UIImage+Scale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+Scale.swift"; path = "../../../../Downloads/UIImage+Scale.swift"; sourceTree = "<group>"; };
+		B00B1E881EB94C5000066C21 /* GLCalendarDateRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLCalendarDateRange.h; sourceTree = "<group>"; };
+		B00B1E891EB94C5000066C21 /* GLCalendarDateRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLCalendarDateRange.m; sourceTree = "<group>"; };
+		B00B1E8B1EB94C5000066C21 /* GLCalendarDayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLCalendarDayCell.h; sourceTree = "<group>"; };
+		B00B1E8C1EB94C5000066C21 /* GLCalendarDayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLCalendarDayCell.m; sourceTree = "<group>"; };
+		B00B1E8D1EB94C5000066C21 /* GLCalendarDayCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GLCalendarDayCell.xib; sourceTree = "<group>"; };
+		B00B1E8E1EB94C5000066C21 /* GLCalendarDayCellBackgroundCover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLCalendarDayCellBackgroundCover.h; sourceTree = "<group>"; };
+		B00B1E8F1EB94C5000066C21 /* GLCalendarDayCellBackgroundCover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLCalendarDayCellBackgroundCover.m; sourceTree = "<group>"; };
+		B00B1E901EB94C5000066C21 /* GLCalendarMonthCoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLCalendarMonthCoverView.h; sourceTree = "<group>"; };
+		B00B1E911EB94C5000066C21 /* GLCalendarMonthCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLCalendarMonthCoverView.m; sourceTree = "<group>"; };
+		B00B1E921EB94C5000066C21 /* GLCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLCalendarView.h; sourceTree = "<group>"; };
+		B00B1E931EB94C5000066C21 /* GLCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLCalendarView.m; sourceTree = "<group>"; };
+		B00B1E941EB94C5000066C21 /* GLCalendarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GLCalendarView.xib; sourceTree = "<group>"; };
+		B00B1E951EB94C5000066C21 /* GLDateUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLDateUtils.h; sourceTree = "<group>"; };
+		B00B1E961EB94C5000066C21 /* GLDateUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLDateUtils.m; sourceTree = "<group>"; };
+		B00B1E981EB94C5000066C21 /* gl-calendar-magnify-glass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gl-calendar-magnify-glass.png"; sourceTree = "<group>"; };
+		B00B1E991EB94C5000066C21 /* gl-calendar-magnify-glass@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gl-calendar-magnify-glass@2x.png"; sourceTree = "<group>"; };
+		B00B1E9A1EB94C5000066C21 /* gl-calendar-shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gl-calendar-shadow.png"; sourceTree = "<group>"; };
+		B00B1E9B1EB94C5000066C21 /* gl-calendar-shadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gl-calendar-shadow@2x.png"; sourceTree = "<group>"; };
+		B00B1E9C1EB94C5000066C21 /* gl-calendar-shadow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gl-calendar-shadow@3x.png"; sourceTree = "<group>"; };
+		B00B1EAA1EB94CBC00066C21 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
+		B00B1EAC1EB94FFD00066C21 /* TimeframeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeframeViewController.swift; sourceTree = "<group>"; };
 		B02922D51EB7B8330045E1BF /* Borrower.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Borrower.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B02922D81EB7B8330045E1BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B02922DB1EB7B8330045E1BF /* Borrower.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Borrower.xcdatamodel; sourceTree = "<group>"; };
@@ -41,6 +76,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B00B1E871EB94C5000066C21 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				B00B1E881EB94C5000066C21 /* GLCalendarDateRange.h */,
+				B00B1E891EB94C5000066C21 /* GLCalendarDateRange.m */,
+				B00B1E8A1EB94C5000066C21 /* GLCalendarDayCell */,
+				B00B1E901EB94C5000066C21 /* GLCalendarMonthCoverView.h */,
+				B00B1E911EB94C5000066C21 /* GLCalendarMonthCoverView.m */,
+				B00B1E921EB94C5000066C21 /* GLCalendarView.h */,
+				B00B1E931EB94C5000066C21 /* GLCalendarView.m */,
+				B00B1E941EB94C5000066C21 /* GLCalendarView.xib */,
+				B00B1E951EB94C5000066C21 /* GLDateUtils.h */,
+				B00B1E961EB94C5000066C21 /* GLDateUtils.m */,
+				B00B1E971EB94C5000066C21 /* Images */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		B00B1E8A1EB94C5000066C21 /* GLCalendarDayCell */ = {
+			isa = PBXGroup;
+			children = (
+				B00B1E8B1EB94C5000066C21 /* GLCalendarDayCell.h */,
+				B00B1E8C1EB94C5000066C21 /* GLCalendarDayCell.m */,
+				B00B1E8D1EB94C5000066C21 /* GLCalendarDayCell.xib */,
+				B00B1E8E1EB94C5000066C21 /* GLCalendarDayCellBackgroundCover.h */,
+				B00B1E8F1EB94C5000066C21 /* GLCalendarDayCellBackgroundCover.m */,
+			);
+			path = GLCalendarDayCell;
+			sourceTree = "<group>";
+		};
+		B00B1E971EB94C5000066C21 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				B00B1E981EB94C5000066C21 /* gl-calendar-magnify-glass.png */,
+				B00B1E991EB94C5000066C21 /* gl-calendar-magnify-glass@2x.png */,
+				B00B1E9A1EB94C5000066C21 /* gl-calendar-shadow.png */,
+				B00B1E9B1EB94C5000066C21 /* gl-calendar-shadow@2x.png */,
+				B00B1E9C1EB94C5000066C21 /* gl-calendar-shadow@3x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		B00B1EAB1EB94E2E00066C21 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B00B1E871EB94C5000066C21 /* Sources */,
+				B00B1E851EB8F76A00066C21 /* UIImage+Scale.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		B02922CC1EB7B8330045E1BF = {
 			isa = PBXGroup;
 			children = (
@@ -60,10 +146,12 @@
 		B02922D71EB7B8330045E1BF /* Borrower */ = {
 			isa = PBXGroup;
 			children = (
-				B00B1E851EB8F76A00066C21 /* UIImage+Scale.swift */,
+				B00B1EAB1EB94E2E00066C21 /* Helpers */,
 				B02922D81EB7B8330045E1BF /* AppDelegate.swift */,
 				B02922DD1EB7B8330045E1BF /* MasterViewController.swift */,
 				B02922DF1EB7B8330045E1BF /* DetailViewController.swift */,
+				B00B1EAC1EB94FFD00066C21 /* TimeframeViewController.swift */,
+				B00B1EAA1EB94CBC00066C21 /* BridgingHeader.h */,
 				B02922E11EB7B8330045E1BF /* Main.storyboard */,
 				B02922E41EB7B8330045E1BF /* Assets.xcassets */,
 				B02922E61EB7B8330045E1BF /* LaunchScreen.storyboard */,
@@ -134,8 +222,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				B02922E81EB7B8330045E1BF /* LaunchScreen.storyboard in Resources */,
+				B00B1EA61EB94C5000066C21 /* gl-calendar-magnify-glass@2x.png in Resources */,
+				B00B1EA91EB94C5000066C21 /* gl-calendar-shadow@3x.png in Resources */,
+				B00B1EA51EB94C5000066C21 /* gl-calendar-magnify-glass.png in Resources */,
+				B00B1E9F1EB94C5000066C21 /* GLCalendarDayCell.xib in Resources */,
+				B00B1EA31EB94C5000066C21 /* GLCalendarView.xib in Resources */,
 				B02922E51EB7B8330045E1BF /* Assets.xcassets in Resources */,
+				B00B1EA71EB94C5000066C21 /* gl-calendar-shadow.png in Resources */,
 				B02922E31EB7B8330045E1BF /* Main.storyboard in Resources */,
+				B00B1EA81EB94C5000066C21 /* gl-calendar-shadow@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,11 +241,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B00B1E9D1EB94C5000066C21 /* GLCalendarDateRange.m in Sources */,
+				B00B1EAD1EB94FFD00066C21 /* TimeframeViewController.swift in Sources */,
 				B02922D91EB7B8330045E1BF /* AppDelegate.swift in Sources */,
+				B00B1EA41EB94C5000066C21 /* GLDateUtils.m in Sources */,
 				B02922DC1EB7B8330045E1BF /* Borrower.xcdatamodeld in Sources */,
+				B00B1EA11EB94C5000066C21 /* GLCalendarMonthCoverView.m in Sources */,
+				B00B1EA01EB94C5000066C21 /* GLCalendarDayCellBackgroundCover.m in Sources */,
 				B02922DE1EB7B8330045E1BF /* MasterViewController.swift in Sources */,
+				B00B1E9E1EB94C5000066C21 /* GLCalendarDayCell.m in Sources */,
 				B00B1E861EB8F76A00066C21 /* UIImage+Scale.swift in Sources */,
 				B02922E01EB7B8330045E1BF /* DetailViewController.swift in Sources */,
+				B00B1EA21EB94C5000066C21 /* GLCalendarView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +378,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.timbeals.Borrower;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = Borrower/BridgingHeader.h;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -289,6 +392,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.timbeals.Borrower;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = Borrower/BridgingHeader.h;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
